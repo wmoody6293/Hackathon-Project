@@ -1,5 +1,5 @@
 {
-    "manifest_version": 3,
+    "manifest_version": 2,
     "name": "Codesmith Revamp",
     "version": "1.0",
     "description": "Makes the Codesmith website Look amazing with some audio",
@@ -11,5 +11,6 @@
             ],
             "run_at": "document_idle"
         }
-    ]
+    ],
+    "web_accessible_resources": ["*.mp3"]
 }

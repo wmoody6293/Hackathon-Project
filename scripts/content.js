@@ -1,31 +1,5 @@
 //get all the images from current page
 //store the images in a variable array
-console.log("I'm HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-console.log("I'm HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-console.log("I'm HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-console.log("I'm HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-console.log("I'm HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-console.log("I'm HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-console.log("I'm HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-console.log("I'm HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-console.log("I'm HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-console.log("I'm HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-console.log("I'm HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-console.log("I'm HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-console.log("I'm HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-console.log("I'm HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-console.log("I'm HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-console.log("I'm HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-console.log("I'm HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-console.log("I'm HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-console.log("I'm HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-console.log("I'm HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-console.log("I'm HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-console.log("I'm HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-console.log("I'm HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-console.log("I'm HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-console.log("I'm HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-
 
 var elementsInsideBody = [...document.body.getElementsByTagName('*')];
 // This makes an array of everything inside the body tag
@@ -35,7 +9,7 @@ console.log(elementsInsideMain)
 //a function that loops through every single item
 function findAndReplace(){
   
-  replaceBG();
+  
   elementsInsideBody.forEach(element =>{
     element.childNodes.forEach(child =>{
       if(child.nodeType === 3){
@@ -44,7 +18,8 @@ function findAndReplace(){
     });
 
   });
-}
+};
+
 function replaceBG(){
     elementsInsideMain.forEach(element=>{
         element.childNodes.forEach(child=>{
@@ -54,24 +29,24 @@ function replaceBG(){
             }
         })
     })
-    const body = document.body;
-    // body.style.backgroundImage = "linear-gradient(to right, red, blue)"
+
 }
+
 function replaceText (node) {
 
   let value = node.nodeValue;
   value = value.replace(/Codesmith/gi, 'BestBootcampEver')
   value = value.replace(/JavaScript/gi, 'Python');
   
-//   value = value.replace(/Codesmith/gi, 'BestBootcampEver');
-  value = value.replace(/brexit/gi, 'breadsticks');
+  //   value = value.replace(/Codesmith/gi, 'BestBootcampEver');
   node.nodeValue = value;
 }
 
 window.onload = findAndReplace();
 var count = 0;
+
 document.addEventListener('click', function(){
-  
+  replaceBG();
   if(count<=0){
     const startSong = playAudio();
     startSong(count);
@@ -83,7 +58,8 @@ document.addEventListener('click', function(){
 function playAudio(){
   var audio = document.createElement("AUDIO")
   document.body.appendChild(audio);
-  audio.src = "https://www4.naijagreen.com/wp-content/uploads/music/2021/09/Queen_-_We_Will_Rock_You_%5bNaijaGreen.Com%5d_.mp3";
+  audio.src = chrome.extension.getURL("media/weWillRockYou2.mp3");
+  console.log(audio);
   return function (count){
     if(count<=1){
       audio.play();
