@@ -1,0 +1,15 @@
+{
+    "manifest_version": 3,
+    "name": "Codesmith Revamp",
+    "version": "1.0",
+    "description": "Makes the Codesmith website Look amazing with some audio",
+    "content_scripts": [
+        {
+            "js": ["scripts/content.js"],
+            "matches": [
+              "https://www.codesmith.io/*"
+            ],
+            "run_at": "document_idle"
+        }
+    ]
+}
